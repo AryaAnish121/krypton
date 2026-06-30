@@ -26,24 +26,35 @@ Scope {
             Rectangle {
                 anchors.fill: parent
 
-                ShellText {
+                Row {
+                    anchors.verticalCenter: parent.verticalCenter
+                    spacing: 10
+                    anchors.leftMargin: 18
                     anchors.left: parent.left
-                    anchors.leftMargin: 25
-                    text: {
-                        const win = Hyprland.activeToplevel;
-                        if (!win || !win.wayland)
-                            return "";
 
-                        const entry = DesktopEntries.byId(win.wayland.appId);
-                        return entry ? entry.name : win.title;
+                    ShellText {
+                        font.pixelSize: 14
+                        text: "󰜡"
                     }
+
+                    ShellText {
+                        text: {
+                            const win = Hyprland.activeToplevel;
+                            if (!win || !win.wayland)
+                                return "";
+
+                            const entry = DesktopEntries.byId(win.wayland.appId);
+                            return entry ? entry.name : win.title;
+                        }
+                    }
+
                 }
 
                 Row {
-                    spacing: 28
+                    spacing: 17
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.right: parent.right
-                    anchors.rightMargin: 25
+                    anchors.rightMargin: 18
 
                     SystemTray {
                     }
@@ -56,7 +67,7 @@ Scope {
                 gradient: Gradient {
                     GradientStop {
                         position: 0
-                        color: '#88070707'
+                        color: '#5a000000'
                     }
 
                     GradientStop {

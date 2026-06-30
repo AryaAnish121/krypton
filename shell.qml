@@ -3,6 +3,9 @@
 import Quickshell
 
 Scope {
+    Dock {
+    }
+
     Bar {
     }
 

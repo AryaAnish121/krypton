@@ -1,0 +1,15 @@
+- finder and other pinned apps add
+- make it so that warns do not occur
+- animations
+- music thingy
+- sepearator
+- make apps launch/focus
+- multiple windows
+- make apps pinnable
+- make click
+- shadow
+- kitty icon
+- todo installer: fonts, service, copy qs, wallpapers
+- tooltip
+- chagne icon theme, and add generators for different color templates
+- build mprisplayers singleton, and status possibly and dock signleton

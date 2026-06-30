@@ -3,7 +3,8 @@ import Quickshell
 import Quickshell.Services.SystemTray
 
 Row {
-    spacing: 25
+    spacing: 16
+    anchors.verticalCenter: parent.verticalCenter
 
     Repeater {
         model: SystemTray.items
@@ -11,8 +12,8 @@ Row {
         Item {
             id: trayItem
 
-            width: 22
-            height: 22
+            width: 19
+            height: 19
 
             QsMenuAnchor {
                 id: trayMenuAnchor
