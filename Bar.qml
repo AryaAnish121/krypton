@@ -38,6 +38,7 @@ Scope {
                     }
 
                     ShellText {
+                        font.bold: true
                         text: {
                             const win = Hyprland.activeToplevel;
                             if (!win || !win.wayland)
