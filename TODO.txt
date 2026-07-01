@@ -1,3 +1,7 @@
+instant: 
+- shelltext and other experiments refactor proper
+- add ? to prevent null for execute and icon
+
 current todo:
 
 - pinned apps make read writeable to file

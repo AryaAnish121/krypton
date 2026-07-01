@@ -1,11 +1,9 @@
 import QtQuick
-import QtQuick.Effects
 import Quickshell
-import Quickshell.Hyprland
-import Quickshell.Services.Mpris
 import Quickshell.Wayland
 import Quickshell.Widgets
-import qs.modules
+import qs.components.dock.main
+import qs.modules.dock.main
 
 PanelWindow {
     id: root
@@ -43,40 +41,10 @@ PanelWindow {
             anchors.horizontalCenter: parent.horizontalCenter
 
             Row {
-                id: dockIcons
-
                 height: parent.height
                 spacing: 8
 
-                Repeater {
-                    model: Applist.apps
-
-                    Item {
-                        height: parent.height
-                        width: height
-                        anchors.verticalCenter: parent.verticalCenter
-
-                        Image {
-                            anchors.fill: parent
-                            fillMode: Image.PreserveAspectFit
-                            source: Quickshell.iconPath(modelData.entry.icon)
-                        }
-
-                        MouseArea {
-                            id: mouseArea
-
-                            anchors.fill: parent
-                            cursorShape: Qt.PointingHandCursor
-                            onClicked: {
-                                if (modelData.running)
-                                    modelData.window.activate();
-                                else
-                                    modelData.entry.execute();
-                            }
-                        }
-
-                    }
-
+                DockApps {
                 }
 
             }
@@ -89,34 +57,7 @@ PanelWindow {
                 radius: 5
             }
 
-            Row {
-                height: parent.height
-                rightPadding: 0.8 // fix the ghost less padding; no idea what's causing this
-
-                Item {
-                    anchors.verticalCenter: parent.verticalCenter
-                    height: parent.height - 7
-                    width: height
-
-                    ClippingRectangle {
-                        anchors.fill: parent
-                        radius: 10
-
-                        Image {
-                            anchors.fill: parent
-                            fillMode: Image.PreserveAspectCrop
-                            source: MprisPlayers.activePlayer ? MprisPlayers.activePlayer.trackArtUrl : "assets/no_music.svg"
-                        }
-
-                    }
-
-                    MouseArea {
-                        anchors.fill: parent
-                        cursorShape: Qt.PointingHandCursor
-                    }
-
-                }
-
+            MusicPlayer {
             }
 
         }

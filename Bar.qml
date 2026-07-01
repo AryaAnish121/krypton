@@ -1,8 +1,8 @@
 import QtQuick
 import Quickshell
 import Quickshell.Hyprland
-import qs.components
-import qs.modules
+import qs.components.bar
+import qs.modules.bar
 
 Scope {
     id: root
@@ -33,7 +33,6 @@ Scope {
                     anchors.left: parent.left
 
                     ShellText {
-                        font.pixelSize: 14
                         text: "󰜡"
                     }
 

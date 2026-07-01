@@ -2,7 +2,6 @@ pragma Singleton
 
 import Quickshell
 import Quickshell.Wayland
-import qs.modules
 
 
 Singleton {
