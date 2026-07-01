@@ -8,7 +8,7 @@ Singleton {
     readonly property list<DesktopEntry> pinnedApps: [
         DesktopEntries.byId("firefox"), 
         DesktopEntries.byId("code"),
-        DesktopEntries.byId("kitty"),
+        DesktopEntries.byId("kitty")
     ]
     
     readonly property list<Toplevel> runningApps: ToplevelManager.toplevels.values

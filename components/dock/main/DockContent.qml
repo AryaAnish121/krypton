@@ -23,6 +23,7 @@ Row {
     }
 
     Seperator {
+        visible: Applist.pinnedAppsFiltered.length != 0
     }
 
     Row {
@@ -41,9 +42,11 @@ Row {
     }
 
     Seperator {
+        visible: Applist.unPinnedAppsFiltered.length != 0
     }
 
     MusicPlayer {
+        dockItems: Applist.pinnedAppsFiltered.length + Applist.unPinnedAppsFiltered
     }
 
 }

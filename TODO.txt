@@ -2,7 +2,6 @@ current todo:
 
 - pinned apps make read writeable to file
 - animations
-- check up on spacing music player feels right 
 - todo installer: fonts, service, copy qs, wallpapers
 - chagne icon theme, and add generators for different color templates
 - add a dot to symbolize running - borked - looks ugly and would require additional work past gui improvments
