@@ -13,3 +13,4 @@
 - tooltip
 - chagne icon theme, and add generators for different color templates
 - build mprisplayers singleton, and status possibly and dock signleton
+- handle no track and no player

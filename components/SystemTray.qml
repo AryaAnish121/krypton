@@ -1,13 +1,13 @@
 import QtQuick
 import Quickshell
-import Quickshell.Services.SystemTray
+import qs.modules
 
 Row {
     spacing: 16
     anchors.verticalCenter: parent.verticalCenter
 
     Repeater {
-        model: SystemTray.items
+        model: SystemTrayItems.items
 
         Item {
             id: trayItem

@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Controls
 import QtQuick.Effects
 import Quickshell
 import Quickshell.Hyprland
@@ -49,22 +50,25 @@ PanelWindow {
                 spacing: 8
 
                 Repeater {
-                    model: Hyprland.toplevels
+                    model: Applist.apps
 
                     Item {
-                        height: DesktopEntries.byId(modelData.wayland.appId).icon != "" ? parent.height : 0
+                        height: parent.height
                         width: height
                         anchors.verticalCenter: parent.verticalCenter
 
                         Image {
                             anchors.fill: parent
                             fillMode: Image.PreserveAspectFit
-                            source: Quickshell.iconPath(DesktopEntries.byId(modelData.wayland.appId).icon)
+                            source: Quickshell.iconPath(modelData.icon)
                         }
 
                         MouseArea {
+                            id: mouseArea
+
                             anchors.fill: parent
                             cursorShape: Qt.PointingHandCursor
+                            hoverEnabled: true
                         }
 
                     }
@@ -75,7 +79,7 @@ PanelWindow {
 
             Rectangle {
                 width: 2
-                color: '#b9909090'
+                color: '#a4808080'
                 height: parent.height * 0.3
                 anchors.verticalCenter: parent.verticalCenter
                 radius: 5
@@ -96,7 +100,7 @@ PanelWindow {
                         Image {
                             anchors.fill: parent
                             fillMode: Image.PreserveAspectCrop
-                            source: MprisPlayers.activePlayer.trackArtUrl
+                            source: MprisPlayers.activePlayer ? MprisPlayers.activePlayer.trackArtUrl : "assets/no_music.svg"
                         }
 
                     }
