@@ -16,15 +16,18 @@ Singleton {
     readonly property var combinedApps: [
         ...runningApps.map(item => {
             const idApp = DesktopEntries.byId(item.appId)
-            if (idApp) return {entry: idApp, window: item, running: true};
-            return {entry: DesktopEntries.heuristicLookup(item.appId), window: item, running: true};
+            if (idApp) return {entry: idApp, window: item, running: true, pinned: pinnedApps.includes(idApp)};
+            const nameApp = DesktopEntries.heuristicLookup(item.appId)
+            return {
+                entry: nameApp, window: item, running: true, pinned: pinnedApps.includes(nameApp)
+            };
         }),
         ...pinnedApps.map(item => {
-            return {entry: item, window: null, running: false}
+            return {entry: item, window: null, running: false, pinned: true}
         }),
     ];
 
-    readonly property var apps: {
+    readonly property var filteredApps: {
         // idk performance dawg; first idea that came to mind
         var added = []
         const unqiueApps = combinedApps.filter(value => {
@@ -35,7 +38,8 @@ Singleton {
             return false;
         })
         return unqiueApps
-    } 
+    }
 
-    
+    readonly property var pinnedAppsFiltered: filteredApps.filter(value => value.pinned)
+    readonly property var unPinnedAppsFiltered: filteredApps.filter(value => !value.pinned)
 }

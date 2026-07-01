@@ -2,7 +2,6 @@ import QtQuick
 import Quickshell
 import Quickshell.Wayland
 import qs.components.dock.main
-import qs.modules.dock.main
 
 PanelWindow {
     id: root
@@ -31,34 +30,8 @@ PanelWindow {
         anchors.topMargin: 2
         anchors.bottomMargin: 8
 
-        Row {
+        DockContent {
             id: dock
-
-            spacing: 12
-            height: parent.height - root.ypadding_dock
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
-
-            Row {
-                height: parent.height
-                spacing: 8
-
-                DockApps {
-                }
-
-            }
-
-            Rectangle {
-                width: 2
-                color: '#a4808080'
-                height: parent.height * 0.3
-                anchors.verticalCenter: parent.verticalCenter
-                radius: 5
-            }
-
-            MusicPlayer {
-            }
-
         }
 
         border {
