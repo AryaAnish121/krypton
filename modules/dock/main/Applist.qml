@@ -3,13 +3,18 @@ pragma Singleton
 import Quickshell
 import Quickshell.Wayland
 
+// just checked - this is shit performance wise; to be rewritten
+
 
 Singleton {
-    readonly property list<DesktopEntry> pinnedApps: [
-        DesktopEntries.byId("firefox"), 
-        DesktopEntries.byId("code"),
-        DesktopEntries.byId("kitty")
-    ]
+    readonly property list<DesktopEntry> pinnedApps: {
+        const _cacheTrigger = DesktopEntries.applications.values;
+        return [
+            DesktopEntries.byId("firefox"), 
+            DesktopEntries.byId("code"),
+            DesktopEntries.byId("kitty")
+        ]
+    }
     
     readonly property list<Toplevel> runningApps: ToplevelManager.toplevels.values
 
