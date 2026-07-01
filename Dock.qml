@@ -1,5 +1,4 @@
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Effects
 import Quickshell
 import Quickshell.Hyprland
@@ -15,7 +14,7 @@ PanelWindow {
     readonly property int ypadding_dock: 15
 
     screen: Quickshell.screens[0]
-    implicitHeight: 76
+    implicitHeight: 73
     color: "transparent"
     WlrLayershell.namespace: "qsdock"
 
@@ -26,14 +25,14 @@ PanelWindow {
     }
 
     Rectangle {
-        color: '#09c3c3c3'
+        color: '#21000000'
         radius: 10
         width: dock.width + root.xpadding_dock
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.topMargin: 2
-        anchors.bottomMargin: 5
+        anchors.bottomMargin: 8
 
         Row {
             id: dock
@@ -60,7 +59,7 @@ PanelWindow {
                         Image {
                             anchors.fill: parent
                             fillMode: Image.PreserveAspectFit
-                            source: Quickshell.iconPath(modelData.icon)
+                            source: Quickshell.iconPath(modelData.entry.icon)
                         }
 
                         MouseArea {
@@ -68,7 +67,12 @@ PanelWindow {
 
                             anchors.fill: parent
                             cursorShape: Qt.PointingHandCursor
-                            hoverEnabled: true
+                            onClicked: {
+                                if (modelData.running)
+                                    modelData.window.activate();
+                                else
+                                    modelData.entry.execute();
+                            }
                         }
 
                     }
@@ -87,6 +91,7 @@ PanelWindow {
 
             Row {
                 height: parent.height
+                rightPadding: 0.8 // fix the ghost less padding; no idea what's causing this
 
                 Item {
                     anchors.verticalCenter: parent.verticalCenter

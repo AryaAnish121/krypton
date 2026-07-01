@@ -1,16 +1,22 @@
-- finder and other pinned apps add
-- make it so that warns do not occur
+current todo:
+
+- pinned apps make read writeable to file
 - animations
-- music thingy
-- sepearator
-- make apps launch/focus
-- multiple windows
-- make apps pinnable
-- make click
-- shadow
-- kitty icon
+- check up on spacing music player feels right 
 - todo installer: fonts, service, copy qs, wallpapers
-- tooltip
 - chagne icon theme, and add generators for different color templates
-- build mprisplayers singleton, and status possibly and dock signleton
-- handle no track and no player
+- add a dot to symbolize running
+
+
+-- maybe ideas --
+- music thingy - add pause/play maybe..?
+- make music image popout shadow or some shit
+- add context menu for dock items for like the unpin and pin thingy
+- find a better way to filter dulplicate in dock menu
+
+-- icons changed (for the final user script)
+firefox, chrome, vesktop -> Vesktop, image viewer gnome (couldn't find that imma do it later), zathura - current looks good but look for alternatives
+
+--- final readme ---
+credit: https://github.com/Afillated/quickshell-carbonflake/blob/main/services%2FMprisPlayers.qml
+for the idea to use a singleton for mprisplayers
