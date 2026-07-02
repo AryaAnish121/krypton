@@ -2,8 +2,10 @@ import QtQuick
 import qs.modules.dock.main
 
 Row {
+    property int ypadding
+
     spacing: 12
-    height: parent.height - root.ypadding_dock
+    height: parent.height - ypadding
     anchors.verticalCenter: parent.verticalCenter
     anchors.horizontalCenter: parent.horizontalCenter
 
@@ -22,7 +24,7 @@ Row {
 
     }
 
-    Seperator {
+    Separator {
         visible: Applist.pinnedAppsFiltered.length != 0
     }
 
@@ -41,7 +43,7 @@ Row {
 
     }
 
-    Seperator {
+    Separator {
         visible: Applist.unPinnedAppsFiltered.length != 0
     }
 

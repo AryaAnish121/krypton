@@ -1,11 +1,9 @@
 import QtQuick
 import Quickshell
-// added
-import Quickshell.Hyprland
 import Quickshell.Wayland
 import qs.components.dock.main
 import qs.components.dock.sound
-import qs.modules.common
+import qs.modules.dock.main
 
 PanelWindow {
     id: root
@@ -13,7 +11,9 @@ PanelWindow {
     readonly property int xpadding_dock: 20
     readonly property int ypadding_dock: 15
     readonly property var width_mode: {
-        "audio": 325
+        "audio": 325,
+        "dock": dock.width + root.xpadding_dock,
+        "screenshot": screenshot.width + root.xpadding_dock
     }
     property string mode: "dock"
 
@@ -22,34 +22,16 @@ PanelWindow {
     color: "transparent"
     WlrLayershell.namespace: "qsdock"
 
-    readonly property list<HyprlandWorkspace> workspaceList: Hyprland.workspaces.values
-
     anchors {
         bottom: true
         left: true
         right: true
     }
 
-    Timer {
-        id: volumeTimer
-
-        interval: 1000
-        onTriggered: {
-            root.mode = "dock";
-        }
-    }
-
     Rectangle {
-        id: meow
-
         color: '#21000000'
         radius: 10
-        width: {
-            if (mode != "dock")
-                return width_mode[mode];
-
-            return dock.width + root.xpadding_dock;
-        }
+        width: width_mode[mode]
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.horizontalCenter: parent.horizontalCenter
@@ -61,16 +43,80 @@ PanelWindow {
 
             visible: mode == "dock"
             opacity: mode == "dock" ? 1 : 0
+            ypadding: root.ypadding_dock
         }
 
         SoundContent {
+            visible: (mode == "audio")
+            opacity: (mode == "audio") ? 1 : 0
             onVolumeChanged: {
                 root.mode = "audio";
                 volumeTimer.restart();
             }
 
-            visible: (mode == "audio")
-            opacity: (mode == "audio") ? 1 : 0
+            Timer {
+                id: volumeTimer
+
+                interval: 1000
+                onTriggered: {
+                    root.mode = "dock";
+                }
+            }
+
+        }
+
+        Row {
+            id: screenshot
+
+            visible: (mode == "screenshot")
+            spacing: 12
+            height: parent.height - root.ypadding_dock
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            Repeater {
+                model: [{
+                    "icon": "",
+                    "command": "",
+                    "active": false
+                }, {
+                    "icon": "",
+                    "command": "",
+                    "active": false
+                }, {
+                    "icon": "",
+                    "command": "",
+                    "active": true
+                }, {
+                    "icon": "",
+                    "command": "",
+                    "active": false
+                }]
+
+                Item {
+                    height: parent.height
+                    width: height
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    Rectangle {
+                        anchors.fill: parent
+                        radius: 10
+                        color: modelData.active ? '#220F46' : "transparent"
+
+                        Text {
+                            font.family: "Phosphor-Bold"
+                            anchors.centerIn: parent
+                            text: modelData.icon
+                            font.pixelSize: 22
+                            color: "#D1BCFD"
+                        }
+
+                    }
+
+                }
+
+            }
+
         }
 
         border {
