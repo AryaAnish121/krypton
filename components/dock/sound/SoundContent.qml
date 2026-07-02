@@ -1,9 +1,15 @@
 import QtQuick
+import Quickshell.Services.Pipewire
 import qs.modules.common
 
 Item {
-    property real volume
-    property bool muted
+    PwObjectTracker {
+        objects: [Pipewire.defaultAudioSink]
+    }
+
+    property real volume: Pipewire.defaultAudioSink?.audio.volume ?? 0.0
+    property bool muted: Pipewire.defaultAudioSink?.audio.muted ?? true
+
 
     height: parent.height
     width: parent.width
@@ -33,7 +39,7 @@ Item {
 
                 Behavior on width {
                     NumberAnimation {
-                        duration: 50
+                        duration: 30
                         easing.type: Easing.InOutQuad
                     }
 

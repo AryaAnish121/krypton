@@ -1,10 +1,11 @@
 import QtQuick
 import Quickshell
-import Quickshell.Services.Pipewire
+// added
+import Quickshell.Hyprland
 import Quickshell.Wayland
 import qs.components.dock.main
-import qs.modules.common
 import qs.components.dock.sound
+import qs.modules.common
 
 PanelWindow {
     id: root
@@ -14,7 +15,6 @@ PanelWindow {
     readonly property var width_mode: {
         "audio": 325
     }
-
     property string mode: "dock"
 
     screen: Quickshell.screens[0]
@@ -22,12 +22,7 @@ PanelWindow {
     color: "transparent"
     WlrLayershell.namespace: "qsdock"
 
-    PwObjectTracker {
-        objects: [Pipewire.defaultAudioSink]
-    }
-
-    property real systemVolume: Pipewire.defaultAudioSink?.audio.volume ?? 0.0
-    property bool systemVolumeMuted: Pipewire.defaultAudioSink?.audio.muted ?? true
+    readonly property list<HyprlandWorkspace> workspaceList: Hyprland.workspaces.values
 
     anchors {
         bottom: true
@@ -37,19 +32,16 @@ PanelWindow {
 
     Timer {
         id: volumeTimer
+
         interval: 1000
         onTriggered: {
-            root.mode = "dock"
+            root.mode = "dock";
         }
-    }
-
-    onSystemVolumeChanged: {
-        root.mode = "audio"
-        volumeTimer.restart()
     }
 
     Rectangle {
         id: meow
+
         color: '#21000000'
         radius: 10
         width: {
@@ -64,13 +56,6 @@ PanelWindow {
         anchors.topMargin: 2
         anchors.bottomMargin: 8
 
-        Behavior on width {
-            NumberAnimation {
-                duration: 100
-                easing.type: Easing.InOutQuad
-            }
-        }
-
         DockContent {
             id: dock
 
@@ -78,18 +63,28 @@ PanelWindow {
             opacity: mode == "dock" ? 1 : 0
         }
 
+        SoundContent {
+            // disabled for testing
+            // onVolumeChanged: {
+            //     root.mode = "audio";
+            //     volumeTimer.restart();
+            // }
 
-        SoundContent{
             visible: (mode == "audio")
             opacity: (mode == "audio") ? 1 : 0
-
-            volume: systemVolume
-            muted: systemVolumeMuted
         }
 
         border {
             color: '#1ac3c3c3'
             width: 1
+        }
+
+        Behavior on width {
+            NumberAnimation {
+                duration: 100
+                easing.type: Easing.InOutQuad
+            }
+
         }
 
     }

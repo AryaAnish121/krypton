@@ -5,7 +5,7 @@ current todo:
 - todo installer: fonts, service, copy qs, wallpapers
 - chagne icon theme, and add generators for different color templates
 - add a dot to symbolize running - borked - looks ugly and would require additional work past gui improvments
-- prolly move shelltext to universal module
+- add workspace switcher - borked - too frequent switches would make it look ugly + no direct way to listen except direct signal thing which might degrade performance...? idk just a guess cuz too amny events..?
 
 
 -- maybe ideas --
