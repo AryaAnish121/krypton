@@ -64,11 +64,10 @@ PanelWindow {
         }
 
         SoundContent {
-            // disabled for testing
-            // onVolumeChanged: {
-            //     root.mode = "audio";
-            //     volumeTimer.restart();
-            // }
+            onVolumeChanged: {
+                root.mode = "audio";
+                volumeTimer.restart();
+            }
 
             visible: (mode == "audio")
             opacity: (mode == "audio") ? 1 : 0

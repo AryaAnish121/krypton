@@ -20,3 +20,6 @@ firefox, chrome, vesktop -> Vesktop, image viewer gnome (couldn't find that imma
 --- final readme ---
 credit: https://github.com/Afillated/quickshell-carbonflake/blob/main/services%2FMprisPlayers.qml
 for the idea to use a singleton for mprisplayers
+
+-- fianlly --
+disable testing and enable timers
