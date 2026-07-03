@@ -2,6 +2,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Wayland
 import qs.components.dock.main
+import qs.components.dock.selector
 import qs.components.dock.sound
 import qs.modules.dock.main
 
@@ -13,8 +14,38 @@ PanelWindow {
     readonly property var width_mode: {
         "audio": 325,
         "dock": dock.width + root.xpadding_dock,
-        "screenshot": screenshot.width + root.xpadding_dock
+        "screenshot": screenshot.width + root.xpadding_dock,
+        "powerMenu": powerMenu.width + root.xpadding_dock
     }
+    readonly property var powerMenuOptions: [{
+        "icon": "",
+        "command": "lock"
+    }, {
+        "icon": "",
+        "command": "sleep"
+    }, {
+        "icon": "",
+        "command": "logout"
+    }, {
+        "icon": "",
+        "command": "reboot"
+    }, {
+        "icon": "",
+        "command": "shutdown"
+    }]
+    readonly property var screenshotOptions: [{
+        "icon": "",
+        "command": "takeScreenshot"
+    }, {
+        "icon": "",
+        "command": "getText"
+    }, {
+        "icon": "",
+        "command": "googleSearch"
+    }, {
+        "icon": "",
+        "command": "colorPicker"
+    }]
     property string mode: "dock"
 
     screen: Quickshell.screens[0]
@@ -49,74 +80,50 @@ PanelWindow {
         SoundContent {
             visible: (mode == "audio")
             opacity: (mode == "audio") ? 1 : 0
-            onVolumeChanged: {
+            onDockChange: {
                 root.mode = "audio";
-                volumeTimer.restart();
             }
-
-            Timer {
-                id: volumeTimer
-
-                interval: 1000
-                onTriggered: {
-                    root.mode = "dock";
-                }
+            onDockClose: {
+                root.mode = "dock";
             }
-
         }
 
-        Row {
+        ListSelector {
+            id: powerMenu
+
+            selectorId: "powerMenu"
+            mode: root.mode
+            mainWindow: root
+            ypadding: root.ypadding_dock
+            options: root.powerMenuOptions
+            onDockClose: {
+                root.mode = "dock";
+            }
+            onToggleDock: {
+                root.mode = root.mode == "powerMenu" ? "dock" : "powerMenu";
+            }
+            onSelection: (command) => {
+                console.log(command);
+            }
+        }
+
+        ListSelector {
             id: screenshot
 
-            visible: (mode == "screenshot")
-            spacing: 12
-            height: parent.height - root.ypadding_dock
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
-
-            Repeater {
-                model: [{
-                    "icon": "",
-                    "command": "",
-                    "active": false
-                }, {
-                    "icon": "",
-                    "command": "",
-                    "active": false
-                }, {
-                    "icon": "",
-                    "command": "",
-                    "active": true
-                }, {
-                    "icon": "",
-                    "command": "",
-                    "active": false
-                }]
-
-                Item {
-                    height: parent.height
-                    width: height
-                    anchors.verticalCenter: parent.verticalCenter
-
-                    Rectangle {
-                        anchors.fill: parent
-                        radius: 10
-                        color: modelData.active ? '#220F46' : "transparent"
-
-                        Text {
-                            font.family: "Phosphor-Bold"
-                            anchors.centerIn: parent
-                            text: modelData.icon
-                            font.pixelSize: 22
-                            color: "#D1BCFD"
-                        }
-
-                    }
-
-                }
-
+            selectorId: "screenshot"
+            mode: root.mode
+            mainWindow: root
+            ypadding: root.ypadding_dock
+            options: root.screenshotOptions
+            onDockClose: {
+                root.mode = "dock";
             }
-
+            onToggleDock: {
+                root.mode = root.mode == "dock" ? "screenshot" : "dock";
+            }
+            onSelection: (command) => {
+                console.log(command);
+            }
         }
 
         border {
