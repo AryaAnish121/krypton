@@ -63,11 +63,9 @@ PanelWindow {
         color: '#21000000'
         radius: 10
         width: width_mode[mode]
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
+        height: 63
+        y: 2
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.topMargin: 2
-        anchors.bottomMargin: 8
 
         DockContent {
             id: dock
