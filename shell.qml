@@ -10,10 +10,9 @@ Scope {
     Dock {
         mode: dockMode
         onSwitchMode: (switchTo) => {
-            root.dockMode = switchTo;
+            root.dockMode = root.dockMode == switchTo ? "dock" : switchTo;
         }
         onCloseDockMain: () => {
-            console.log("hi");
             root.dockMode = "dock";
         }
     }

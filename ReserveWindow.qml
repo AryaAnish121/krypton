@@ -4,7 +4,7 @@ PanelWindow {
     property string mode
 
     screen: Quickshell.screens[0]
-    implicitHeight: mode == "wallpaper" ? (73) : 0
+    implicitHeight: 73
     color: "transparent"
 
     anchors {

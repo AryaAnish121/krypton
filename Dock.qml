@@ -58,7 +58,7 @@ PanelWindow {
     color: "transparent"
     WlrLayershell.namespace: "qsdock"
     WlrLayershell.layer: (mode == "wallpaper") ? WlrLayer.Overlay : WlrLayer.Top
-    exclusionMode: (mode == "wallpaper") ? ExclusionMode.Ignore : ExclusionMode.Auto
+    exclusionMode: ExclusionMode.Ignore
 
     anchors {
         bottom: true
@@ -70,9 +70,11 @@ PanelWindow {
         color: '#21000000'
         radius: 10
         width: width_mode[mode]
-        height: (mode == "wallpaper") ? 603 : 63
-        y: 2
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
         anchors.horizontalCenter: parent.horizontalCenter
+        anchors.topMargin: 2
+        anchors.bottomMargin: 8
 
         DockContent {
             id: dock
