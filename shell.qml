@@ -9,7 +9,4 @@ Scope {
     Bar {
     }
 
-    WallpaperSelector {
-    }
-
 }
