@@ -4,7 +4,6 @@ import Quickshell.Wayland
 import qs.components.dock.main
 import qs.components.dock.selector
 import qs.components.dock.sound
-import qs.components.dock.wallpaper
 import qs.modules.dock.main
 
 PanelWindow {
@@ -16,8 +15,7 @@ PanelWindow {
         "audio": 325,
         "dock": dock.width + root.xpadding_dock,
         "screenshot": screenshot.width + root.xpadding_dock,
-        "powerMenu": powerMenu.width + root.xpadding_dock,
-        "wallpaper": 750
+        "powerMenu": powerMenu.width + root.xpadding_dock
     }
     readonly property var powerMenuOptions: [{
         "icon": "",
@@ -48,17 +46,23 @@ PanelWindow {
         "icon": "",
         "command": "colorPicker"
     }]
-    property string mode
+    property string mode: "dock"
 
-    signal switchMode(string switchTo)
-    signal closeDockMain()
+    function switchMode(switchTo) {
+        if (switchTo != "audio")
+            root.mode = root.mode == switchTo ? "dock" : switchTo;
+        else
+            root.mode = "audio";
+    }
+
+    function closeDockMain() {
+        root.mode = "dock";
+    }
 
     screen: Quickshell.screens[0]
-    implicitHeight: (mode == "wallpaper") ? 613 : 73
+    implicitHeight: 73
     color: "transparent"
     WlrLayershell.namespace: "qsdock"
-    WlrLayershell.layer: (mode == "wallpaper") ? WlrLayer.Overlay : WlrLayer.Top
-    exclusionMode: ExclusionMode.Ignore
 
     anchors {
         bottom: true
@@ -67,7 +71,7 @@ PanelWindow {
     }
 
     Rectangle {
-        color: root.mode != "wallpaper" ? '#21000000' : '#141218'
+        color: '#21000000'
         radius: 10
         width: width_mode[mode]
         anchors.top: parent.top
@@ -130,19 +134,6 @@ PanelWindow {
             }
             onSelection: (command) => {
                 console.log(command);
-            }
-        }
-
-        WallpaperSelector {
-            mainWindow: root
-            mode: root.mode
-            visible: (mode == "wallpaper")
-            opacity: (mode == "wallpaper") ? 1 : 0
-            onToggleDock: {
-                switchMode("wallpaper");
-            }
-            onDockClose: {
-                closeDockMain();
             }
         }
 
