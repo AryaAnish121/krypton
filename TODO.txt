@@ -1,22 +1,37 @@
 current todo:
 
 - pinned apps make read writeable to file
-- animations
-- todo installer: fonts, service, copy qs, wallpapers
-- chagne icon theme, and add generators for different color templates
-- add a dot to symbolize running - borked - looks ugly and would require additional work past gui improvments
-- add workspace switcher - borked - too frequent switches would make it look ugly + no direct way to listen except direct signal thing which might degrade performance...? idk just a guess cuz too amny events..?
-- listen for command click
-
--- this time --
-shadows
+NO WALLPAPER SWITCHER LADS! IDK HOW TO IMPLEMENT ONE. MAKING A NORMAL ONE WOULD INCREASE RAM USAGE; other things higher on the priority list + doesn't look premium + couldn't find a way to implement it :[
+- wallpaper switcher cli
+- docked mode
+- matugen integration
+- hyprlock and others customization -> hyprland shadows hpyrlock
+- make things clickable lol -> music thingy status bar
+- matugen create themes for various thing gtk and shit - o man if only i built that god damn wallpaper switcher
 
 
--- maybe ideas --
-- music thingy - add pause/play maybe..?
+-- for the future --
+- output source picker - high prior
+- wallpaper picker - mid prior
+- app list increase performance / refactor - absolute bare low deep minimum prior; who tf wants to revisit for a fucking refacotr
+
+-- things to add in the final installer --
+- fonts
+- gpu driver thingy
+- qs copy obv
+- wallpapers
+- icon theme and modifications
+- hyprland -> blur shortcuts gaps general look and feel i mean
+
+
+-- maybe ideas (things on lower priority than the lowest priority in the above list) -- 
 - make music image popout shadow or some shit
 - add context menu for dock items for like the unpin and pin thingy - prolly not - not much to offer and too much work
-- find a better way to filter dulplicate in dock menu - watdatmean was i high when i wrote ts?
+
+
+----------------------------------------------------
+- add a dot to symbolize running - borked - looks ugly and would require additional work past gui improvments
+- add workspace switcher - borked - too frequent switches would make it look ugly + no direct way to listen except direct signal thing which might degrade performance...? idk just a guess cuz too amny events..?
 
 -- icons changed (for the final user script)
 firefox, chrome, vesktop -> Vesktop, image viewer gnome (couldn't find that imma do it later), zathura - current looks good but look for alternatives
