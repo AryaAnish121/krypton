@@ -4,6 +4,7 @@ import Quickshell.Wayland
 import qs.components.dock.main
 import qs.components.dock.selector
 import qs.components.dock.sound
+import qs.components.dock.wallpaper
 import qs.modules.dock.main
 
 PanelWindow {
@@ -15,7 +16,8 @@ PanelWindow {
         "audio": 325,
         "dock": dock.width + root.xpadding_dock,
         "screenshot": screenshot.width + root.xpadding_dock,
-        "powerMenu": powerMenu.width + root.xpadding_dock
+        "powerMenu": powerMenu.width + root.xpadding_dock,
+        "wallpaper": 750
     }
     readonly property var powerMenuOptions: [{
         "icon": "",
@@ -46,12 +48,17 @@ PanelWindow {
         "icon": "",
         "command": "colorPicker"
     }]
-    property string mode: "dock"
+    property string mode
+
+    signal switchMode(string switchTo)
+    signal closeDockMain()
 
     screen: Quickshell.screens[0]
-    implicitHeight: 73
+    implicitHeight: (mode == "wallpaper") ? 613 : 73
     color: "transparent"
     WlrLayershell.namespace: "qsdock"
+    WlrLayershell.layer: (mode == "wallpaper") ? WlrLayer.Overlay : WlrLayer.Top
+    exclusionMode: (mode == "wallpaper") ? ExclusionMode.Ignore : ExclusionMode.Auto
 
     anchors {
         bottom: true
@@ -63,7 +70,7 @@ PanelWindow {
         color: '#21000000'
         radius: 10
         width: width_mode[mode]
-        height: 63
+        height: (mode == "wallpaper") ? 603 : 63
         y: 2
         anchors.horizontalCenter: parent.horizontalCenter
 
@@ -79,10 +86,10 @@ PanelWindow {
             visible: (mode == "audio")
             opacity: (mode == "audio") ? 1 : 0
             onDockChange: {
-                root.mode = "audio";
+                switchMode("audio");
             }
             onDockClose: {
-                root.mode = "dock";
+                closeDockMain();
             }
         }
 
@@ -95,10 +102,10 @@ PanelWindow {
             ypadding: root.ypadding_dock
             options: root.powerMenuOptions
             onDockClose: {
-                root.mode = "dock";
+                closeDockMain();
             }
             onToggleDock: {
-                root.mode = root.mode == "powerMenu" ? "dock" : "powerMenu";
+                switchMode("powerMenu");
             }
             onSelection: (command) => {
                 console.log(command);
@@ -114,13 +121,26 @@ PanelWindow {
             ypadding: root.ypadding_dock
             options: root.screenshotOptions
             onDockClose: {
-                root.mode = "dock";
+                closeDockMain();
             }
             onToggleDock: {
-                root.mode = root.mode == "dock" ? "screenshot" : "dock";
+                switchMode("screenshot");
             }
             onSelection: (command) => {
                 console.log(command);
+            }
+        }
+
+        WallpaperSelector {
+            mainWindow: root
+            mode: root.mode
+            visible: (mode == "wallpaper")
+            opacity: (mode == "wallpaper") ? 1 : 0
+            onToggleDock: {
+                switchMode("wallpaper");
+            }
+            onDockClose: {
+                closeDockMain();
             }
         }
 
