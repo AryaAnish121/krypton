@@ -67,7 +67,7 @@ PanelWindow {
     }
 
     Rectangle {
-        color: '#21000000'
+        color: root.mode != "wallpaper" ? '#21000000' : '#141218'
         radius: 10
         width: width_mode[mode]
         anchors.top: parent.top
