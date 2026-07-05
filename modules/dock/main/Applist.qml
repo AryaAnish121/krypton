@@ -1,14 +1,15 @@
 import Quickshell
+import Quickshell.Io
 import Quickshell.Wayland
 pragma Singleton
 
 Singleton {
-    readonly property list<string> pinnedApps: ["firefox", "code", "kitty"]
+    property var pinnedApps: adapter.pinnedApps
     readonly property list<Toplevel> runningApps: ToplevelManager.toplevels.values
     property var _entryCache: ({
     })
     readonly property var apps: {
-        const _waitForApps = DesktopEntries.applications.values; // hack to fix ghost apps; 
+        const _waitForApps = DesktopEntries.applications.values; // hack to fix ghost apps;
         let seenApps = new Set();
         let pinnedList = [];
         let unPinnedList = [];
@@ -16,12 +17,14 @@ Singleton {
             if (!seenApps.has(item.appId)) {
                 if (pinnedApps.includes(item.appId))
                     pinnedList.push({
+                    "appId": item.appId,
                     "entry": getEntry(item.appId),
                     "window": item,
                     "running": true
                 });
                 else
                     unPinnedList.push({
+                    "appId": item.appId,
                     "entry": getEntry(item.appId),
                     "window": item,
                     "running": true
@@ -32,6 +35,7 @@ Singleton {
         pinnedApps.forEach((item) => {
             if (!seenApps.has(item))
                 pinnedList.push({
+                "appId": item,
                 "entry": getEntry(item),
                 "window": null,
                 "running": false
@@ -51,6 +55,32 @@ Singleton {
         const entry = DesktopEntries.byId(appId) ?? DesktopEntries.heuristicLookup(appId);
         _entryCache[appId] = entry;
         return entry;
+    }
+
+    function pinApp(appId) {
+        if (pinnedApps.includes(appId)) {
+            const newList = pinnedApps.filter((item) => {
+                return item !== appId;
+            });
+            adapter.pinnedApps = newList;
+        } else {
+            adapter.pinnedApps.push(appId);
+        }
+    }
+
+    FileView {
+        id: jsonFile
+
+        path: Quickshell.shellPath("pinnedApps.json")
+        blockLoading: true
+        onAdapterUpdated: jsonFile.writeAdapter()
+
+        JsonAdapter {
+            id: adapter
+
+            property list<string> pinnedApps
+        }
+
     }
 
 }
