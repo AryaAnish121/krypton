@@ -1,9 +1,7 @@
 current todo:
 
-- pinned apps make read writeable to file
-NO WALLPAPER SWITCHER LADS! IDK HOW TO IMPLEMENT ONE. MAKING A NORMAL ONE WOULD INCREASE RAM USAGE; other things higher on the priority list + doesn't look premium + couldn't find a way to implement it :[
 - wallpaper switcher cli
-- docked mode
+- docked mode - todo now
 - matugen integration
 - hyprlock and others customization -> hyprland shadows hpyrlock dunst
 - make things clickable lol -> music thingy status bar
