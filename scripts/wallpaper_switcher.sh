@@ -1,4 +1,4 @@
-CONFIG_FILE="$HOME/.config/hyprpaper.conf"
+CONFIG_FILE="$HOME/.config/hypr/hyprpaper.conf"
 
 if [ -z "$1" ]; then
     echo "Supply the wallpaper gng!"
@@ -7,7 +7,7 @@ fi
 
 hyprctl hyprpaper wallpaper ",$1"
 
-cat << EOF > CONFIG_FILE
+cat << EOF > $CONFIG_FILE
 wallpaper {
     monitor =
     path = $1
@@ -16,4 +16,4 @@ wallpaper {
 splash=false
 EOF
 
-matugen image --prefer darkness -m dark $1
+matugen image --source-color-index 0 -m dark $1

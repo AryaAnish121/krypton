@@ -1,9 +1,8 @@
 current todo:
 
-- wallpaper switcher cli
 - docked mode - fuh naw not important; later
-- matugen integration
-- hyprlock and others customization -> hyprland shadows hpyrlock dunst - now
+- matugen integration w hyprland and shit and quickshell
+- hyprlock customization maybe
 - matugen create themes for various thing gtk and shit - o man if only i built that god damn wallpaper switcher
 - WE DOIN DA WALLPAPER GNG; just need to think of the design first 🔁 "doing it but the last thing im going to do"
 
@@ -17,7 +16,6 @@ current todo:
 - wallpapers
 - icon theme and modifications
 - hyprland -> blur shortcuts gaps general look and feel i mean
-
 
 -- maybe ideas (things on lower priority than the lowest priority in the above list) -- 
 - make music image popout shadow or some shit
