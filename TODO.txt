@@ -3,8 +3,7 @@ current todo:
 - wallpaper switcher cli
 - docked mode - fuh naw not important; later
 - matugen integration
-- hyprlock and others customization -> hyprland shadows hpyrlock dunst
-- make things clickable lol -> music thingy status bar - now
+- hyprlock and others customization -> hyprland shadows hpyrlock dunst - now
 - matugen create themes for various thing gtk and shit - o man if only i built that god damn wallpaper switcher
 - WE DOIN DA WALLPAPER GNG; just need to think of the design first 🔁 "doing it but the last thing im going to do"
 
