@@ -12,7 +12,7 @@ Item {
     Image {
         anchors.fill: parent
         fillMode: Image.PreserveAspectFit
-        source: Quickshell.iconPath(appData.entry.icon)
+        source: Quickshell.iconPath(appData.entry?.icon)
     }
 
     MouseArea {
