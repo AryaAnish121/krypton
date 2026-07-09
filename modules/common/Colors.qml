@@ -8,7 +8,9 @@ pragma Singleton
 FileView {
     id: configFile
 
-    property color background: "#000000"
+    property color background: adapter.background
+    property color dockBackground: Qt.rgba(background.r, background.g, background.b, 0.3)
+    property color dockOption: Qt.rgba(surfaceContainerLowest.r, surfaceContainerLowest.g, surfaceContainerLowest.b, 0.4)
     property color surface: Qt.tint(background, Qt.rgba(adapter.overBackground.r, adapter.overBackground.g, adapter.overBackground.b, 0.1))
     property color surfaceBright: Qt.tint(background, Qt.rgba(adapter.overBackground.r, adapter.overBackground.g, adapter.overBackground.b, 0.2))
     property color surfaceContainer: adapter.surfaceContainer
@@ -122,6 +124,7 @@ FileView {
 
     adapter: JsonAdapter {
         property color background: "#1a1111"
+        property color dockColor: background
         property color blue: "#cebdfe"
         property color blueContainer: "#4c3e76"
         property color blueSource: "#0000ff"

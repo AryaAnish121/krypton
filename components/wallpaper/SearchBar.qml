@@ -1,4 +1,5 @@
 import QtQuick
+import qs.modules.common
 
 Rectangle {
     property alias searchBar: searchBar
@@ -34,7 +35,7 @@ Rectangle {
             font.family: "Phosphor-Bold"
             text: ""
             font.pixelSize: 22
-            color: '#305f8b'
+            color: Colors.overPrimaryFixedVariant
         }
 
         Text {

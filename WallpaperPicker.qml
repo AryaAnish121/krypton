@@ -4,6 +4,7 @@ import Quickshell
 import Quickshell.Hyprland
 import Quickshell.Io
 import qs.components.wallpaper
+import qs.modules.common
 
 PanelWindow {
     id: mainWindow
@@ -66,7 +67,7 @@ PanelWindow {
     Rectangle {
         height: parent.height
         width: parent.width
-        color: "#111418"
+        color: Colors.background
         radius: 8
 
         border {

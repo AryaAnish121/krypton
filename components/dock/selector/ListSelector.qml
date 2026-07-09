@@ -72,14 +72,14 @@ Row {
             Rectangle {
                 anchors.fill: parent
                 radius: 10
-                color: (index == contents.currentFocused) ? '#220F46' : "transparent"
+                color: (index == contents.currentFocused) ? Colors.dockOption : "transparent"
 
                 Text {
                     font.family: "Phosphor-Bold"
                     anchors.centerIn: parent
                     text: modelData.icon
                     font.pixelSize: 22
-                    color: '#c8aeff'
+                    color: Colors.overBackground
                 }
 
                 MouseArea {

@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell.Widgets
+import qs.modules.common
 
 Rectangle {
     property alias view: view
@@ -41,7 +42,7 @@ Rectangle {
 
                 border {
                     width: (index == currentPick) ? 2 : 0
-                    color: '#1d5e9b'
+                    color: Colors.overPrimaryFixedVariant
                 }
 
                 ClippingRectangle {

@@ -4,6 +4,7 @@ import Quickshell.Wayland
 import qs.components.dock.main
 import qs.components.dock.selector
 import qs.components.dock.sound
+import qs.modules.common
 import qs.modules.dock.main
 
 PanelWindow {
@@ -73,7 +74,7 @@ PanelWindow {
     }
 
     Rectangle {
-        color: '#21000000'
+        color: Colors.dockBackground
         radius: 10
         width: width_mode[mode]
         anchors.top: parent.top

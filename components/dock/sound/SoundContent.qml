@@ -37,7 +37,7 @@ Item {
         ShellText {
             text: muted ? "󰖁" : "󰕾"
             font.pixelSize: 22
-            color: muted ? "#4E3D75" : "#E9DEF8"
+            color: muted ? Colors.surfaceVariant : Colors.primary
         }
 
         Rectangle {
@@ -45,13 +45,13 @@ Item {
             radius: 5
             height: 5
             width: 200
-            color: "#4E3D75"
+            color: Colors.surfaceVariant
 
             Rectangle {
                 height: parent.height
                 width: volume * parent.width
                 radius: 5
-                color: "#E9DEF8"
+                color: Colors.primary
 
                 Behavior on width {
                     NumberAnimation {
