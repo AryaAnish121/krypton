@@ -79,7 +79,7 @@ Row {
                     anchors.centerIn: parent
                     text: modelData.icon
                     font.pixelSize: 22
-                    color: Colors.overBackground
+                    color: Colors.primary
                 }
 
                 MouseArea {
