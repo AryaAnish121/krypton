@@ -55,7 +55,8 @@ install_icons () {
 
 install_emojis () {
     yay -S --needed ttf-apple-emoji
-    echo "you might need to uninstall and reinsatll the noto emojis thingy for the apple emoji to work"
+    sudo ln -sf /usr/share/fontconfig/conf.avail/75-apple-color-emoji.conf /etc/fonts/conf.d/
+    fc-cache -f -v
 }
 
 install_matugen () {
