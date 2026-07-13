@@ -36,6 +36,7 @@ Item {
 
         ShellText {
             text: muted ? "󰖁" : "󰕾"
+            font.family: "JetBrains Mono"
             font.pixelSize: 22
             color: muted ? Colors.surfaceVariant : Colors.primary
         }

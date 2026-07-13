@@ -36,6 +36,7 @@ Scope {
 
                     ShellText {
                         text: "󰜡"
+                        font.family: "JetBrains Mono"
 
                         MouseArea {
                             anchors.fill: parent
