@@ -18,7 +18,7 @@ confirm_installation () {
 }
 
 install_pacman_stuff () {
-    sudo pacman --noconfirm --needed -S unzip fastfetch asciiquarium adw-gtk-theme matugen dunst xdg-desktop-portal-hyprland archlinux-xdg-menu zsh git quickshell hyprlock hypridle hyprpaper hyprsunset zathura zathura-pdf-mupdf imagemagick grim slurp wl-clipboard hyprpicker inotify-tools libnotify tesseract tesseract-data-eng tesseract-data-hin jq ttf-jetbrains-mono-nerd gnome-clocks gnome-calculator baobab
+    sudo pacman --noconfirm --needed -S unzip fastfetch asciiquarium adw-gtk-theme matugen dunst xdg-desktop-portal-hyprland archlinux-xdg-menu zsh git quickshell hyprlock hypridle hyprpaper hyprsunset zathura zathura-pdf-mupdf imagemagick grim slurp wl-clipboard hyprpicker inotify-tools libnotify tesseract tesseract-data-eng tesseract-data-hin jq ttf-jetbrains-mono-nerd gnome-clocks gnome-calculator baobab base-devel
 }
 
 install_yay_stuff () {
