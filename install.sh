@@ -93,13 +93,15 @@ install_kitty () {
 }
 
 post_install() {
-    echo -e "\033[1;31mRun sudo rm -f ~/.config/gtk-4.0/gtk.css after running nwg-look (GTK Settings) and setting adw-gtk as the theme for the colors to work\033[0m"
+    echo "first of all logout-login/restart and choose a wallpaper"
+    echo -e "\033[1;31mRun sudo rm -f ~/.config/gtk-4.0/gtk.css everytime you make changes in nwg-look (GTK Settings)\033[0m"
+    echo "now select your font, icon pack and cursor in gtk settings; also recommended to do it in kde"
+    echo "you also might want to add fastfetch to your zshrc"
+    echo "make sure to change the firefox profile in matugen config before running the wallpaper picker"
+    echo "you still have to configure the default file manager and shit in default hyprland config"
     echo -e "recommended to run: \e[1msudo pacman -S intel-media-driver opencl-mesa\e[0m for intel gpus; later may or may not be as useful (mainly for davinci resolve)"
     echo -e "apps to quickstart: \e[1myay -S visual-studio-code-bin google-chrome vesktop\e[0m; \e[1msudo pacman -S obs-studio spotify-launcher\e[0m; and apps like spicetify"
-    echo "you still have to configure the default file manager and shit in default hyprland config"
-    echo "make sure to change the firefox profile in matugen config before running the wallpaper picker"
-    echo "you also might want to add fastfetch to your zshrc and select your font, icon pack and cursor in gtk settings; also choose fonts and theme in kitty"
-    echo -e "recommended to install all colors themes in matugen config using the guide: https://github.com/InioX/matugen-themes"
+    echo "recommended to install all colors themes in matugen config using the guide: https://github.com/InioX/matugen-themes"
 }
 
 confirm_installation
