@@ -53,6 +53,7 @@ install_icons () {
     rm -rf WhiteSur-icon-theme
     cd ~/.local/share/icons/WhiteSur/apps/scalable
     cp terminal.svg kitty.svg
+    cd  ~/tmp/krypton
 }
 
 install_emojis () {
