@@ -51,7 +51,8 @@ install_icons () {
     ./install.sh
     cd ..
     rm -rf WhiteSur-icon-theme
-    #extend and replace kitty icon
+    cd ~/.local/share/icons/WhiteSur/apps/scalable
+    cp terminal.svg kitty.svg
 }
 
 install_emojis () {
@@ -96,8 +97,8 @@ post_install() {
     echo -e "apps to quickstart: \e[1myay -S visual-studio-code-bin google-chrome vesktop\e[0m; \e[1msudo pacman -S obs-studio spotify-launcher\e[0m; and apps like spicetify"
     echo "you still have to configure the default file manager and shit in default hyprland config"
     echo "make sure to change the firefox profile in matugen config before running the wallpaper picker"
-    echo "you also might want to add fastfetch to your zshrc and select your font, icon pack and cursor in gtk settings"
-    echo -e "also recommended to install \e[1mpywalfox\e[0m; spicetify theme with \e[1mhttps://github.com/InioX/matugen-themes#spicetify-sleek\e[0m and others like vs code"
+    echo "you also might want to add fastfetch to your zshrc and select your font, icon pack and cursor in gtk settings; also choose fonts and theme in kitty"
+    echo -e "recommended to install all colors themes in matugen config using the guide: https://github.com/InioX/matugen-themes"
 }
 
 confirm_installation
