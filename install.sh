@@ -93,7 +93,7 @@ install_kitty () {
 }
 
 post_install() {
-    echo -e "\033[1;31mRun sudo rm -f ~/.config/gtk-4.0/gtk.css after running nwg-look (GTK Settings) and setting adw-gtk as the theme\033[0m"
+    echo -e "\033[1;31mRun sudo rm -f ~/.config/gtk-4.0/gtk.css after running nwg-look (GTK Settings) and setting adw-gtk as the theme for the colors to work\033[0m"
     echo -e "recommended to run: \e[1msudo pacman -S intel-media-driver opencl-mesa\e[0m for intel gpus; later may or may not be as useful (mainly for davinci resolve)"
     echo -e "apps to quickstart: \e[1myay -S visual-studio-code-bin google-chrome vesktop\e[0m; \e[1msudo pacman -S obs-studio spotify-launcher\e[0m; and apps like spicetify"
     echo "you still have to configure the default file manager and shit in default hyprland config"
