@@ -102,17 +102,17 @@ post_install() {
     echo -e "recommended to install all colors themes in matugen config using the guide: https://github.com/InioX/matugen-themes"
 }
 
-# confirm_installation
-# install_pacman_stuff
-# install_yay_stuff
-# install_icons
-# install_vicinae
-# install_matugen
-# install_kitty
-# install_quickshell
-# install_wallpapers
-# install_hyprselect
-# install_hypr
-# install_fastfetch
-# install_emojis
+confirm_installation
+install_pacman_stuff
+install_yay_stuff
+install_icons
+install_vicinae
+install_matugen
+install_kitty
+install_quickshell
+install_wallpapers
+install_hyprselect
+install_hypr
+install_fastfetch
+install_emojis
 post_install
