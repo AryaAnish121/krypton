@@ -8,6 +8,7 @@ current todo:
 - output source picker - high prior
 - change hyprselect
 - replace ze icons
+- add a picker to select apps to install in install.sh
 
 -- maybe ideas (things on lower priority than the lowest priority in the above list) -- 
 - make music image popout shadow or some shit
