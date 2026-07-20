@@ -74,7 +74,7 @@ install_hypr () {
     rm -rf ~/.config/hypr
     git clone https://github.com/AryaAnish121/hypr.git ~/.config/hypr
     mv ~/tmp/krypton/hyprland.lua ~/.config/hypr
-    echo "loadfile(os.getenv(\"HOME\") .. \"/.config/hypr/krypton.lua\")()" >> ~/.config/hypr/hyprland.lua
+    echo "require(\"krypton\")" >> ~/.config/hypr/hyprland.lua
 }
 
 install_quickshell () {
