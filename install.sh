@@ -99,7 +99,7 @@ post_install() {
     echo "you also might want to add fastfetch to your zshrc"
     echo "make sure to change the firefox profile in matugen config before running the wallpaper picker"
     echo "you still have to configure the default file manager and shit in default hyprland config"
-    echo -e "recommended to run: \e[1msudo pacman -S intel-media-driver opencl-mesa\e[0m for intel gpus; later may or may not be as useful (mainly for davinci resolve)"
+    echo -e "recommended to run: \e[1msudo pacman -S intel-media-driver opencl-mesa\e[0m for intel gpus; later may or may not be as useful (mainly for davinci resolve); recommended to visit \e[1mhttps://wiki.archlinux.org/title/Intel_graphics#Fix_colors_for_Wayland\e[0m if experiencing washed out colors"
     echo -e "apps to quickstart: \e[1myay -S visual-studio-code-bin google-chrome vesktop\e[0m; \e[1msudo pacman -S obs-studio spotify-launcher\e[0m; and apps like spicetify"
     echo "recommended to install all colors themes in matugen config using the guide: https://github.com/InioX/matugen-themes"
 }
