@@ -1,6 +1,6 @@
 current todo:
 
-- docked mode - fuh naw not important; later
+- change the fallback icon for apps in dock
 - matugen integration w hyprland and shit
 - hyprlock customization maybe
 
