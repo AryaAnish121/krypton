@@ -4,6 +4,9 @@ current todo:
 - matugen integration w hyprland and shit
 - hyprlock customization maybe
 - add song on lock screen
+- change config for hyprselect
+- fix volume indicator width for pipwire audio limit more that 100%
+- hyprglass; implement for dock
 
 -- for the future --
 - output source picker - high prior
