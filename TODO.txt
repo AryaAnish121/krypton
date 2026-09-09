@@ -1,5 +1,7 @@
 current todo:
 
+- add zathura config files IMPORTANT
+
 - add dock hide/unhide shortcut
 - matugen integration w hyprland and shit
 - hyprlock customization maybe
