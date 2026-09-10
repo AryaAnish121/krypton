@@ -9,6 +9,7 @@ current todo:
 - change config for hyprselect
 - fix volume indicator width for pipwire audio limit more that 100%
 - hyprglass; implement for dock
+- make the seperators in dock wallpaper dependent
 
 -- for the future --
 - output source picker - high prior
