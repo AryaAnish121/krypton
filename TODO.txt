@@ -10,6 +10,7 @@ current todo:
 - fix volume indicator width for pipwire audio limit more that 100%
 - hyprglass; implement for dock
 - make the seperators in dock wallpaper dependent
+- enable fstrim-trimmer systemd thing
 
 -- for the future --
 - output source picker - high prior
