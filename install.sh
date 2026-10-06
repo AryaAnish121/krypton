@@ -22,17 +22,13 @@ install_pacman_stuff () {
 }
 
 install_yay_stuff () {
-    yay -S --needed --noconfirm apple_cursor ttf-phosphor-icons
+    yay -S --needed --noconfirm apple_cursor ttf-phosphor-icons vicinae-bin
 }
 
 install_wallpapers() {
     rm -rf ~/wallpapers/wallpapers
     git clone https://github.com/AryaAnish121/wallpapers.git ~/wallpapers
     ~/krypton/scripts/gen_thumb.sh
-}
-
-install_vicinae () {
-    curl -fsSL https://vicinae.com/install | bash
 }
 
 install_hyprselect () {
@@ -108,7 +104,6 @@ confirm_installation
 install_pacman_stuff
 install_yay_stuff
 install_icons
-install_vicinae
 install_matugen
 install_kitty
 install_quickshell
