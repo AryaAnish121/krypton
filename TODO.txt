@@ -11,6 +11,8 @@ current todo:
 - hyprglass; implement for dock
 - make the seperators in dock wallpaper dependent
 - enable fstrim-trimmer systemd thing
+- make notifications look good
+- add rishot in the installation script
 
 -- for the future --
 - output source picker - high prior
